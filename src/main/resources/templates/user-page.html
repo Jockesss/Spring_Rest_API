@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
+        integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn"
+        crossorigin="anonymous">
+  <title>User page</title>
+</head>
+<body>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-12" th:object="${userPage}">
+      <div class="card text-white bg-dark" style="height: 50px">
+        <div class="card-body">
+          <p class="card-text" style="font-size: 20px; position: absolute; top: 12px">
+             <strong>
+              <td th:text="${userPage.getEmail()}"></td>
+             </strong>
+            with roles:
+          <td>
+            <th:block th:each="role : ${userPage.getRoles()}">
+                                            <span th:switch="${role.getRole()}">
+                                             <span th:case="'ROLE_ADMIN'">ADMIN</span>
+                                               <span th:case="'ROLE_USER'">USER</span>
+                                                    </span>
+            </th:block>
+          </td>
+          </p>
+          <div class="float-right">
+            <a href="/logout"   style="color: darkgrey" class="card-link"  >Logout</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-2">
+          <div class="btn-group btn-group-vertical" role="group">
+
+            <button style="color: white" class="btn-xs btn-primary" type="button">
+              User
+            </button>
+         </div>
+        </div>
+        <div class="col-md-10">
+          <div class="page-header">
+            <h1>
+              User information page
+            </h1>
+          </div>
+         <div class="card">
+            <h5 class="card-header">
+              About user
+            </h5>
+            <div class="card-body">
+              <table class="table">
+                <thead>
+                <tr>
+                  <th scope="col">ID</th>
+                  <th scope="col">FirstName</th>
+                  <th scope="col">LastName</th>
+                  <th scope="col">Age</th>
+                  <th scope="col">Email</th>
+                  <th scope="col">Role</th>
+                </tr>
+                </thead>
+                <tbody id = "user-info"></tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script src ="../static/user.js"></script>
+</body>
+
+</html>
+
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
