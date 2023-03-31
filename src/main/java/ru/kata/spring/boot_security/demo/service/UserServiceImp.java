@@ -9,13 +9,12 @@ import ru.kata.spring.boot_security.demo.entities.Role;
 import ru.kata.spring.boot_security.demo.entities.User;
 import ru.kata.spring.boot_security.demo.repositories.RoleRepository;
 import ru.kata.spring.boot_security.demo.repositories.UserRepository;
-import java.util.List;
-import java.util.Optional;
-import java.util.Set;
+
+import java.util.*;
 
 @Service
 public class UserServiceImp implements UserService {
-
+    HashSet<Role> roles = new HashSet<>();
     private final
     UserRepository userRepository;
    private final
@@ -77,8 +76,7 @@ public class UserServiceImp implements UserService {
         if (hashCodePassword) {
             userToBeUpdate.setPassword(passwordEncoder.encode(updateUser.getPassword()));
         }
-//        userToBeUpdate.setRoles((Set<Role>)updateUser.getRoles());
+        userToBeUpdate.setRoles((Set<Role>)updateUser.getRoles());
         userRepository.save(userToBeUpdate);
-
     }
 }

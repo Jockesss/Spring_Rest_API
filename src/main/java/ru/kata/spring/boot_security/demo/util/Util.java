@@ -38,10 +38,8 @@ public class Util implements CommandLineRunner {
         user.setLastname("Kim");
         user.setAge("32");
         user.setEmail("admin@mail.ru");
-        user.setPassword("qwe123"); //user $2a$12$7tpF2m2ptr7STdTQzjrW6emqpOoxqo.jpuXzS0KdwXrs6XaAOUFrW
+        user.setPassword("qwe123");
         user.setRoles(new HashSet<>(Arrays.asList(ROLE_ADMIN, ROLE_USER)));
         userService.addUser(user);
-//        $2a$10$EcWcl7d3f1lqMHSgKROPketQ.WHfYROxMIEBUmByHV85dhWfFP0.2
-
     }
 }
